@@ -2,7 +2,7 @@ name: Download CS Game Files
 
 on:
     schedule:
-        - cron: "0 8 * * *"
+        - cron: "0 2 * * *"
 
     workflow_dispatch:
 
@@ -19,7 +19,7 @@ jobs:
             - uses: actions/setup-node@v3
             - name: Download new game files
               run: npm install && node index.js '${{ secrets.USERNAME }}' '${{ secrets.PASSWORD }}'
-            - name: Run Decompiler for pak01_dir.vpk with ValveResourceFormat 8.1
+            - name: Run Decompiler for pak01_dir.vpk with ValveResourceFormat 10.2
               run: |
                   if [ -f "./temp/pak01_dir.vpk" ]; then
                     chmod +x ./Decompiler
